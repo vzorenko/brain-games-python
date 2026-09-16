@@ -1,5 +1,109 @@
-# python-package
+# Brain Games
 
-[![Github Actions Status](https://github.com/vzorenko/python-project-lvl1/workflows/MyCheck/badge.svg)](https://github.com/vzorenko/python-project-lvl1/actions)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
-![example workflow](https://github.com/vzorenko/python-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)
+Архивный учебный проект **«Игры разума»**, выполненный в 2021 году в рамках курса Python на Hexlet.
+
+> **Статус проекта:** пройдены все 10 шагов задания, автопроверка Hexlet пройдена, проект был доведён до состояния **«подготовлен к ревью»**. Отдельное платное ревью с наставником не проходилось. Репозиторий сохранён как финальный снимок выполненного учебного проекта.
+
+## О проекте
+
+Brain Games — набор из пяти консольных игр для тренировки простых арифметических и логических навыков. Во всех играх используется общий сценарий: программа приветствует пользователя, задаёт вопросы и считает игру пройденной после трёх правильных ответов подряд. Неправильный ответ завершает текущую игру и предлагает попробовать ещё раз.
+
+Реализованы пять игр:
+
+- **Calculator** (`brain-calc`) — вычисление арифметических выражений;
+- **Progression** (`brain-progression`) — поиск пропущенного числа в арифметической прогрессии;
+- **Even** (`brain-even`) — определение чётности числа;
+- **GCD** (`brain-gcd`) — поиск наибольшего общего делителя двух чисел;
+- **Prime** (`brain-prime`) — проверка числа на простоту.
+
+## Что отрабатывалось в проекте
+
+По заданию Hexlet проект должен был закрепить полный базовый цикл разработки отдельного Python-приложения вне учебной среды:
+
+- настройку локального окружения и работу из терминала;
+- структуру Python-пакета, модули и импорты;
+- разделение логики по файлам и базовые абстракции;
+- работу со сторонними библиотеками;
+- упаковку проекта и консольные entry points;
+- линтинг и автоматические проверки;
+- Git и GitHub как основное место хранения проекта.
+
+Текущая версия задания Hexlet уже использует более современный стек (`uv`, `ruff`). Этот репозиторий намеренно сохранён в том виде, в котором проект выполнялся в **2021 году**: с **Poetry** и **flake8**.
+
+## Стек проекта
+
+- Python `^3.7`
+- Poetry
+- `prompt`
+- flake8
+- Make
+- GitHub Actions
+
+## Установка
+
+```bash
+poetry install
+```
+
+Или через Makefile:
+
+```bash
+make install
+```
+
+## Запуск игр
+
+```bash
+poetry run brain-even
+poetry run brain-calc
+poetry run brain-gcd
+poetry run brain-progression
+poetry run brain-prime
+```
+
+Также в пакете есть общая команда приветствия:
+
+```bash
+poetry run brain-games
+```
+
+## Сборка и проверка
+
+```bash
+make lint
+make build
+```
+
+Сборка пакета выполняется через Poetry, а код проверяется `flake8`.
+
+## Структура
+
+Основная логика игр находится в `brain_games/games/`, а консольные entry points — в `brain_games/scripts/`.
+
+```text
+brain_games/
+├── cli.py
+├── games/
+│   ├── game_calc.py
+│   ├── game_even.py
+│   ├── game_gcd.py
+│   ├── game_prime.py
+│   └── game_progression.py
+└── scripts/
+    ├── brain_games.py
+    ├── brain_calc.py
+    ├── brain_even.py
+    ├── brain_gcd.py
+    ├── brain_prime.py
+    └── brain_progression.py
+```
+
+## Контекст исходного задания
+
+Hexlet описывал «Игры разума» как первый для многих полноценный проект вне встроенной учебной среды: нужно было самостоятельно настроить окружение, собрать Python-пакет, организовать код по модулям, подключить инструменты качества и реализовать пять независимых CLI-игр с общей логикой взаимодействия с пользователем.
+
+Демонстрация идеи проекта от Hexlet: https://asciinema.org/a/l40Lrk3midkLmNEOmgZErGnY7
+
+---
+
+**Archive note:** проект больше не развивается и сохранён как исторический снимок завершённой учебной работы 2021 года.
